@@ -17,6 +17,7 @@
 package org.springframework.amqp;
 
 /**
+ * 异常包装类
  * RuntimeException wrapper for an {@link java.net.ConnectException} which can be commonly
  * thrown from AMQP operations if the remote process dies or there is a network issue.
  *
