@@ -198,10 +198,10 @@ subprojects { subproject ->
 		from sourceSets.main.allJava
 	}
 
-	task javadocJar(type: Jar) {
-		classifier = 'javadoc'
-		from javadoc
-	}
+//	task javadocJar(type: Jar) {
+//		classifier = 'javadoc'
+//		from javadoc
+//	}
 
 	checkstyle {
 		configFile = file("${rootDir}/src/checkstyle/checkstyle.xml")
@@ -210,7 +210,7 @@ subprojects { subproject ->
 
 	artifacts {
 		archives sourcesJar
-		archives javadocJar
+//		archives javadocJar
 	}
 
 	jar {
@@ -514,7 +514,7 @@ task distZip(type: Zip, dependsOn: [docsZip, schemaZip]) {
 		into ("${baseDir}/libs") {
 			from subproject.jar
 			from subproject.sourcesJar
-			from subproject.javadocJar
+//			from subproject.javadocJar
 		}
 	}
 }
