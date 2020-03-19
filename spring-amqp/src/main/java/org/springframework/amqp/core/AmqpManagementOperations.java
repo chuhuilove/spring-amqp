@@ -76,7 +76,7 @@ public interface AmqpManagementOperations {
 	Queue getQueue(String name);
 
 	/**
-	 * Get a specific queue from the provided vhost.
+	 * 从提供的vhost获取指定的队列.
 	 * @param vhost the vhost.
 	 * @param name the queue name.
 	 * @return the Queue.

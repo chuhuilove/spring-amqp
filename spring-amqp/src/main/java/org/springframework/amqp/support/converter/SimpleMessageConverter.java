@@ -142,7 +142,11 @@ public class SimpleMessageConverter extends WhiteListDeserializingMessageConvert
 	@Override
 	protected Message createMessage(Object object, MessageProperties messageProperties) throws MessageConversionException {
 		/**
+		 * 如果是一个字节数组,则设置content type为application/octet-stream
+		 * 如果是一个字符串,则直接将字符串转化成byte[]content type为 text/plain
+		 * 如果实现了Serializable接口,代表其可以进行序列化传输.content type为application/x-java-serialized-object
 		 *
+		 * 最后,从产生的byte[]和messageProperties,创建一个Message对象.
 		 */
 		byte[] bytes = null;
 		if (object instanceof byte[]) {
