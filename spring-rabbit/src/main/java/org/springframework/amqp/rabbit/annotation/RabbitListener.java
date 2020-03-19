@@ -26,6 +26,7 @@ import java.lang.annotation.Target;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 
 /**
+ * 标记注解
  * Annotation that marks a method to be the target of a Rabbit message listener on the
  * specified {@link #queues()} (or {@link #bindings()}). The {@link #containerFactory()}
  * identifies the
