@@ -28,12 +28,11 @@ import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
 /**
- * The 0-8 and 0-9-1 AMQP specifications do not define an Message class or interface. Instead, when performing an
- * operation such as basicPublish the content is passed as a byte-array argument and additional properties are passed in
- * as separate arguments. Spring AMQP defines a Message class as part of a more general AMQP domain model
- * representation. The purpose of the Message class is to simply encapsulate the body and properties within a single
- * instance so that the rest of the AMQP API can in turn be simpler.
  *
+ * 0-8和0-9-1 AMQP 规范没有定义一个Message类或接口.
+ * 而是在执行诸如basicPublish之类的操作时,将内容作为字节数组参数传递,并将其他属性作为单独的参数传递.
+ * Spring AMQP将Message类定义为更通用的AMQP域模型表示形式的一部分.
+ * Message类的目的是简单地将主体和属性封装在单个实例中,这样AMQP API的其余部分就可以变得更简单.
  * @author Mark Pollack
  * @author Mark Fisher
  * @author Oleg Zhurakousky

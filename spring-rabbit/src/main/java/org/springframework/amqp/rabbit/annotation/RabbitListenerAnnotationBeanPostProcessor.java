@@ -80,16 +80,19 @@ import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 
 /**
+ * Bean后置处理器
+ * Bean后处理器,它注册用被{@link RabbitListener}注解过的方法,
+ * 该方法将由{@link RabbitListenerContainerFactory}根据注释的参数在封面下创建的AMQP消息侦听器容器调用。
+ * 由AMQP消息侦听器容器根据注解的参数在{@link org.springframework.amqp.rabbit.listener.RabbitListenerContainerFactory}的覆盖下创建.
+ *
  * Bean post-processor that registers methods annotated with {@link RabbitListener}
  * to be invoked by a AMQP message listener container created under the cover
  * by a {@link org.springframework.amqp.rabbit.listener.RabbitListenerContainerFactory}
  * according to the parameters of the annotation.
  *
- * <p>Annotated methods can use flexible arguments as defined by {@link RabbitListener}.
+ * <p>带注解的方法可以使用{@link RabbitListener}定义的灵活参数.
  *
- * <p>This post-processor is automatically registered by Spring's
- * {@code <rabbit:annotation-driven>} XML element, and also by the {@link EnableRabbit}
- * annotation.
+ * <p>这个后置处理器可以通过添加Spring的{@code <rabbit:annotation-driven>}XML标签或者使用{@link EnableRabbit}注解来自动注册.
  *
  * <p>Auto-detect any {@link RabbitListenerConfigurer} instances in the container,
  * allowing for customization of the registry to be used, the default container

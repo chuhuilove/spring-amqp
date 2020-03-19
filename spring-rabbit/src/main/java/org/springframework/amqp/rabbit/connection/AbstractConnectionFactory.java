@@ -57,6 +57,8 @@ import com.rabbitmq.client.RecoveryListener;
 import com.rabbitmq.client.impl.recovery.AutorecoveringConnection;
 
 /**
+ * 连接工厂的抽象类,基本定义了ConnectionFactory的骨架.
+ *
  * @author Dave Syer
  * @author Gary Russell
  * @author Steve Powell

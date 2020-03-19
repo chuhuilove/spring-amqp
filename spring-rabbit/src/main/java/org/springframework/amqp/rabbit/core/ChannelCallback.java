@@ -21,7 +21,7 @@ import org.springframework.lang.Nullable;
 import com.rabbitmq.client.Channel;
 
 /**
- * Basic callback for use in RabbitTemplate.
+ * 在RabbitTemplate中使用的基本回调.
  * @param <T> the type the callback returns.
  *
  * @author Mark Fisher

@@ -20,6 +20,7 @@ import java.util.Map;
 
 /**
  * Interface for all exchanges.
+ * 所有exchange接口
  *
  * @author Mark Fisher
  * @author Gary Russell

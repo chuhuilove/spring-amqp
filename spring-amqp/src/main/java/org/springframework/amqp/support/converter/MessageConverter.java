@@ -23,7 +23,18 @@ import org.springframework.amqp.core.MessageProperties;
 import org.springframework.lang.Nullable;
 
 /**
- * Message converter interface.
+ * 消息转换接口.
+ * 该接口有如下几个抽象类和子接口
+ * 子接口
+ * 1. {@link SmartMessageConverter}
+ *
+ * 抽象类
+ * 1. {@link AbstractMessageConverter}
+ * 2. {@link }
+ *
+ * 直接实现类
+ * 1. {@link ContentTypeDelegatingMessageConverter}
+ * 2. {@link MessagingMessageConverter}
  *
  * @author Mark Fisher
  * @author Mark Pollack
@@ -32,7 +43,7 @@ import org.springframework.lang.Nullable;
 public interface MessageConverter {
 
 	/**
-	 * Convert a Java object to a Message.
+	 * 转换Java对象到Message.
 	 * @param object the object to convert
 	 * @param messageProperties The message properties.
 	 * @return the Message
@@ -41,8 +52,8 @@ public interface MessageConverter {
 	Message toMessage(Object object, MessageProperties messageProperties) throws MessageConversionException;
 
 	/**
-	 * Convert a Java object to a Message.
-	 * The default implementation calls {@link #toMessage(Object, MessageProperties)}.
+	 * 转换Java对象到Message.
+	 * 默认实现调用{@link #toMessage(Object, MessageProperties)}.
 	 * @param object the object to convert
 	 * @param messageProperties The message properties.
 	 * @param genericType the type to use to populate type headers.
@@ -57,7 +68,7 @@ public interface MessageConverter {
 	}
 
 	/**
-	 * Convert from a Message to a Java object.
+	 * 从Message转换成一个Java对象.
 	 * @param message the message to convert
 	 * @return the converted Java object
 	 * @throws MessageConversionException in case of conversion failure

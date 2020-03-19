@@ -24,11 +24,10 @@ import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageProperties;
 
 /**
- * A composite {@link MessageConverter} that delegates to an actual {@link MessageConverter}
- * based on the contentType header. Supports a default converter when no content type matches.
- * Note: the {@link MessageProperties} requires a content type header to select a converter
- * when used for outbound conversion, but the converter will (generally) override it to match
- * the actual conversion.
+ * 一个复合的{@link MessageConverter},它根据contentType标头委派给实际的{@link MessageConverter}.
+ * 当没有content type匹配时,支持默认转换器.
+ * 注意:当用于出站转换时,{@link MessageProperties}需要一个content type头来选择转换器,
+ * 但是转换器(通常)会覆盖它已实际匹配的转换.
  *
  * @author Eric Rizzo
  * @author Gary Russell
@@ -52,6 +51,7 @@ public class ContentTypeDelegatingMessageConverter implements MessageConverter {
 	/**
 	 * Constructs an instance using a the supplied default converter.
 	 * May be null meaning a strict content-type match is required.
+	 *
 	 * @param defaultConverter the converter.
 	 */
 	public ContentTypeDelegatingMessageConverter(MessageConverter defaultConverter) {
@@ -70,7 +70,8 @@ public class ContentTypeDelegatingMessageConverter implements MessageConverter {
 
 	/**
 	 * Add a delegate converter for the content type.
-	 * @param contentType the content type to check.
+	 *
+	 * @param contentType      the content type to check.
 	 * @param messageConverter the {@link MessageConverter} for the content type.
 	 * @since 1.6
 	 */
@@ -80,6 +81,7 @@ public class ContentTypeDelegatingMessageConverter implements MessageConverter {
 
 	/**
 	 * Remove the delegate for the content type.
+	 *
 	 * @param contentType the content type key to remove {@link MessageConverter} from delegates.
 	 * @return the remove {@link MessageConverter}.
 	 */
@@ -107,8 +109,7 @@ public class ContentTypeDelegatingMessageConverter implements MessageConverter {
 
 		if (delegate == null) {
 			throw new MessageConversionException("No delegate converter is specified for content type " + contentType);
-		}
-		else {
+		} else {
 			return delegate;
 		}
 	}

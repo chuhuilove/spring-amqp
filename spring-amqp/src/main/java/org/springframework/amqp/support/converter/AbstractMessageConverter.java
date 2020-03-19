@@ -24,7 +24,18 @@ import org.springframework.amqp.core.MessageProperties;
 import org.springframework.lang.Nullable;
 
 /**
- * Convenient base class for {@link MessageConverter} implementations.
+ * {@link MessageConverter}一个抽象基类实现.
+ * 其有如下几个实现类(非抽象类):
+ * 1. {@link  org.springframework.amqp.support.converter.Jackson2JsonMessageConverter}
+ *
+ * 2. {@link org.springframework.amqp.support.converter.Jackson2XmlMessageConverter}
+ *
+ * 3. {@link org.springframework.amqp.support.converter.MarshallingMessageConverter}
+ *
+ * 4. {@link org.springframework.amqp.support.converter.SerializerMessageConverter}
+ *
+ *
+ * 5. {@link org.springframework.amqp.support.converter.SimpleMessageConverter}
  *
  * @author Dave Syer
  * @author Gary Russell

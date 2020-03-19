@@ -32,6 +32,10 @@ import org.springframework.remoting.rmi.CodebaseAwareObjectInputStream;
 import org.springframework.util.ClassUtils;
 
 /**
+ * {@link MessageConverter}接口的一个实现,它可以处理字符串,可序列化实例或字节数组.
+ * {@link #toMessage(Object, MessageProperties)}方法只是检查提供的实例的类型，
+ * 而{@link #fromMessage(Message)}方法依赖于提供的消息的{@link MessageProperties#getContentType() content-type}.
+ *
  * Implementation of {@link MessageConverter} that can work with Strings, Serializable
  * instances, or byte arrays. The {@link #toMessage(Object, MessageProperties)} method
  * simply checks the type of the provided instance while the {@link #fromMessage(Message)}
@@ -83,10 +87,20 @@ public class SimpleMessageConverter extends WhiteListDeserializingMessageConvert
 	}
 
 	/**
-	 * Converts from a AMQP Message to an Object.
+	 * 从AMQP消息转换到一个对象.
 	 */
 	@Override
 	public Object fromMessage(Message message) throws MessageConversionException {
+		/**
+		 * 转换过程:
+		 * 先从Message中尝试获取MessageProperties,如果没有获取到,
+		 * 则直接把Message中的{@link Message#getBody()}提取出来,然后进行返回.
+		 * 如果有MessageProperties,则:
+		 * 先获取content type,以判断该消息体是一个什么类型,
+		 * 如果content type 不为空,并且content type是以text开头,则直接将消息体转换成字符串,返出去.
+		 * 如果content type 不为空,并且content type是{@link MessageProperties#CONTENT_TYPE_SERIALIZED_OBJECT},
+		 * 意味着,消息体中是一个java对象,需要将其进行反序列化,返出去.
+		 */
 		Object content = null;
 		MessageProperties properties = message.getMessageProperties();
 		if (properties != null) {
@@ -123,10 +137,13 @@ public class SimpleMessageConverter extends WhiteListDeserializingMessageConvert
 	}
 
 	/**
-	 * Creates an AMQP Message from the provided Object.
+	 * 从提供的object中创建一个AMQP Message
 	 */
 	@Override
 	protected Message createMessage(Object object, MessageProperties messageProperties) throws MessageConversionException {
+		/**
+		 *
+		 */
 		byte[] bytes = null;
 		if (object instanceof byte[]) {
 			bytes = (byte[]) object;

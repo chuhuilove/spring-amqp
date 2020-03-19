@@ -80,7 +80,7 @@ public final class SerializationUtils {
 	}
 
 	/**
-	 * Deserialize the stream.
+	 * 反序列化流.
 	 * @param stream an object stream created from a serialized object
 	 * @return the result of deserializing the bytes
 	 */

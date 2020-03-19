@@ -120,3 +120,13 @@ None of these is essential for a pull request, but they will all help.  They can
 # License
 
 Spring AMQP is released under the terms of the Apache Software License Version 2.0 (see license.txt).
+
+
+# 代码结构
+
+## 消息转换器
+
+消息转换器在`spring-amqp/org.springframework.amqp.support.converter/`包下
+
+顶级接口是`org.springframework.amqp.support.converter.MessageConverter`
+

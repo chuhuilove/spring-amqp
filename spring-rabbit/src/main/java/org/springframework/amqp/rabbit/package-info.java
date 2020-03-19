@@ -1,4 +1,4 @@
 /**
- * Provides top-level classes for Spring Rabbit.
+ * 为spring Rabbit 提供顶级类.
  */
 package org.springframework.amqp.rabbit;

@@ -47,7 +47,7 @@ public abstract class RabbitAccessor implements InitializingBean {
 	}
 
 	/**
-	 * Flag to indicate that channels created by this component will be transactional.
+	 * 指示此组件创建的channel将是事务性的标志.
 	 *
 	 * @param transactional the flag value to set
 	 */

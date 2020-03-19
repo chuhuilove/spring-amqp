@@ -20,10 +20,10 @@ import org.springframework.amqp.AmqpException;
 import org.springframework.lang.Nullable;
 
 /**
- * An interface based ConnectionFactory for creating {@link com.rabbitmq.client.Connection Connections}.
+ * 为创建{@link com.rabbitmq.client.Connection 连接对象}的ConnectionFactory,这个一个接口.
  *
  * <p>
- * NOTE: The Rabbit API contains a ConnectionFactory class (same name).
+ * 注意:在Rabbit API中,也包含了一个ConnectionFactory类(同名).
  *
  * @author Mark Fisher
  * @author Dave Syer

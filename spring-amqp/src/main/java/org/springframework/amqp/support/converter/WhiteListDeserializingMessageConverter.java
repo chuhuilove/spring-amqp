@@ -25,7 +25,7 @@ import java.util.Set;
 import org.springframework.amqp.utils.SerializationUtils;
 
 /**
- * MessageConverters that potentially use Java deserialization.
+ * 可能使用Java反序列化的MessageConverters.
  *
  * @author Gary Russell
  * @since 1.5.5

@@ -19,6 +19,10 @@ package org.springframework.amqp.core;
 /**
  * A marker interface for data used to correlate information about sent messages.
  * One example might be used to correlate a send confirmation.
+ * 用于关联有关发送消息的信息的数据的标记接口.
+ * 可以使用一个示例来关联发送确认.
+ * 数据的标记接口,用于关联已发送消息的信息.
+ * 可以使用一个示例来关联发送确认.
  *
  * @author Gary Russell
  * @since 1.6.7
